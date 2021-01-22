@@ -2,7 +2,6 @@ package io.github.iomurphy.robot.config;
 
 import io.github.iomurphy.robot.config.property.DingTalkAuthProperty;
 import io.github.iomurphy.robot.constants.RobotConstants;
-import io.github.iomurphy.robot.convert.DingTalkConverter;
 import io.github.iomurphy.robot.core.DingTalkRobotTemplate;
 import io.github.iomurphy.robot.except.RobotException;
 import io.github.iomurphy.robot.support.DingTalkSignAlgorithm;
@@ -59,12 +58,5 @@ public class DingTalkAutoConfiguration {
             return new DingTalkRobotTemplate(dingTalkAuthProperty, new DingTalkSignAlgorithm(dingTalkAuthProperty.getSecret()));
         }
         return new DingTalkRobotTemplate(dingTalkAuthProperty);
-    }
-
-
-    @Bean(name = "dingTalkConverter")
-    @ConditionalOnMissingBean(DingTalkConverter.class)
-    public DingTalkConverter dingTalkConverter() {
-        return new DingTalkConverter();
     }
 }

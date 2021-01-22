@@ -1,10 +1,11 @@
 package io.github.iomurphy.robot.core;
 
 import io.github.iomurphy.robot.config.property.DingTalkAuthProperty;
-import io.github.iomurphy.robot.convert.DingTalkConverter;
 import io.github.iomurphy.robot.entity.http.DingTalkResponse;
 import io.github.iomurphy.robot.entity.http.Response;
 import io.github.iomurphy.robot.entity.message.Message;
+import io.github.iomurphy.robot.except.RobotException;
+import io.github.iomurphy.robot.except.SendingMessageException;
 import io.github.iomurphy.robot.support.DingTalkSignAlgorithm;
 import io.github.iomurphy.robot.support.SignResult;
 import org.slf4j.Logger;
@@ -25,8 +26,6 @@ public class DingTalkRobotTemplate extends AbstractRobotTemplate {
 
     Logger logger = LoggerFactory.getLogger(DingTalkRobotTemplate.class);
     @Autowired
-    DingTalkConverter converter;
-    @Autowired
     RestTemplate restTemplate;
     DingTalkSignAlgorithm algorithm;
 
@@ -44,11 +43,14 @@ public class DingTalkRobotTemplate extends AbstractRobotTemplate {
 
 
     @Override
-    public Response send(Message message) {
+    public Response send(Message message)  throws RobotException {
         logger.debug("The request content is " + message);
-        Map<String, Object> convertedMessage = converter.convert(message);
-        logger.debug("The converted request content is " + message);
-        DingTalkResponse dingTalkResponse = restTemplate.postForObject(signUrl(), convertedMessage, DingTalkResponse.class);
+        Map<String, Object> map = message.map();
+        logger.debug("The converted request content is " + map);
+        Response dingTalkResponse = restTemplate.postForObject(signUrl(), map, DingTalkResponse.class);
+        if(dingTalkResponse.getErrCode() != 0){
+            throw new SendingMessageException(dingTalkResponse);
+        }
         logger.info("The response is " + dingTalkResponse);
         return dingTalkResponse;
     }

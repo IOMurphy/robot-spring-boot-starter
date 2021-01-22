@@ -14,7 +14,6 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableConfigurationProperties({DingTalkAuthProperty.class, RobotThreadPoolProperties.class})
-@Deprecated
 public class PropertyConfiguration {
 
     // 上面显式指明了，下面可以不用new了

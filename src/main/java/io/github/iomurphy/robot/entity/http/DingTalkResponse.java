@@ -7,6 +7,7 @@ package io.github.iomurphy.robot.entity.http;
  * @author IOmurphy
  */
 public class DingTalkResponse implements Response {
+    private static final long serialVersionUID = 1L;
     int errcode;
     String errmsg;
 
