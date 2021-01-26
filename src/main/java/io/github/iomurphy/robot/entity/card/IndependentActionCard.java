@@ -1,4 +1,4 @@
-package io.github.iomurphy.robot.entity.message.card;
+package io.github.iomurphy.robot.entity.card;
 
 import io.github.iomurphy.robot.entity.enums.MsgTypeEnum;
 
@@ -11,6 +11,9 @@ public class IndependentActionCard extends ActionCard {
     private static final long serialVersionUID = 1L;
 
 
+    /**
+     * 按钮
+     */
     private Queue<Button> buttons = new LinkedList<>();
 
     public IndependentActionCard() {

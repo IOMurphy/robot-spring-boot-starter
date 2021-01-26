@@ -9,11 +9,11 @@ public class MarkdownMessage extends AbstractAtMessage {
     private static final long serialVersionUID = 1L;
 
     /**
-     * markdown标题
+     * 首屏会话透出的展示内容
      */
     private String title;
     /**
-     * markdown 消息
+     * markdown格式的消息内容
      */
     private String text;
 

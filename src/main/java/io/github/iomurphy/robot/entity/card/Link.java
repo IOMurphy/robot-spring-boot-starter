@@ -1,17 +1,17 @@
-package io.github.iomurphy.robot.entity.message.card;
+package io.github.iomurphy.robot.entity.card;
 
 
 public class Link {
     /**
-     * 链接标题
+     * 信息文本
      */
     String title;
     /**
-     * 消息url
+     * 信息跳转链接
      */
     String messageUrl;
     /**
-     * 照片url
+     * 信息后面图片的URL
      */
     String picUrl;
 

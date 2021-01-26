@@ -1,4 +1,4 @@
-package io.github.iomurphy.robot.entity.message.card;
+package io.github.iomurphy.robot.entity.card;
 
 
 public class Button {
@@ -8,7 +8,7 @@ public class Button {
      */
     private String btnTitle;
     /**
-     * 按钮触发的url
+     * 点击按钮触发的URL
      */
     private String btnActionUrl;
     public Button(String btnTitle, String btnActionUrl) {
@@ -32,8 +32,21 @@ public class Button {
         this.btnActionUrl = btnActionUrl;
     }
 
+    /**
+     * 按钮排列方向
+     */
     public enum BtnOrientation {
-        HORIZONTAL(1), VERTICAL(0);
+        /**
+         * 水平排列
+         */
+        HORIZONTAL(1),
+        /**
+         * 垂直排列
+         */
+        VERTICAL(0);
+        /**
+         * 按钮排列方向
+         */
         private final int orientation;
 
         BtnOrientation(int orientation) {

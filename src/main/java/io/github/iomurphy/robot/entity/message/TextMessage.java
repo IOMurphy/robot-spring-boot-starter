@@ -9,7 +9,7 @@ public class TextMessage extends AbstractAtMessage {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 消息内容
+     * 消息文本
      */
     private String content;
 

@@ -1,4 +1,4 @@
-package io.github.iomurphy.robot.entity.message.card;
+package io.github.iomurphy.robot.entity.card;
 
 import io.github.iomurphy.robot.entity.enums.MsgTypeEnum;
 
@@ -9,11 +9,11 @@ public class WholeActionCard extends ActionCard {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 单个按钮的标题。(设置此项和singleURL后btns无效)
+     * 单个按钮的标题
      */
     private String singleTitle;
     /**
-     * 点击singleTitle按钮触发的URL
+     * 单个按钮的跳转链接
      */
     private String singleURL;
 

@@ -1,4 +1,4 @@
-package io.github.iomurphy.robot.entity.message.card;
+package io.github.iomurphy.robot.entity.card;
 
 
 import io.github.iomurphy.robot.entity.enums.MsgTypeEnum;

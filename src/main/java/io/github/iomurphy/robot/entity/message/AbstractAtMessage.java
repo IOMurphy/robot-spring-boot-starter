@@ -11,7 +11,7 @@ abstract class AbstractAtMessage extends AbstractMessage implements Atable, Seri
     private static final long serialVersionUID = 1L;
 
     /**
-     * @的id集合
+     * 被@人的手机号队列
      */
     Queue<String> ids = new LinkedList<>();
     /**
