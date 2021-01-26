@@ -5,6 +5,7 @@ import io.github.iomurphy.robot.entity.enums.MsgTypeEnum;
 import java.util.HashMap;
 import java.util.Map;
 
+@Deprecated
 public class LinkMessage extends AbstractMessage {
     private static final long serialVersionUID = 1L;
 
