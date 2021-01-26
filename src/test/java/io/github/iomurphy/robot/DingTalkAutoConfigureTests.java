@@ -1,28 +1,18 @@
 package io.github.iomurphy.robot;
 
 import io.github.iomurphy.robot.core.RobotTemplate;
-import io.github.iomurphy.robot.entity.message.card.*;
+import io.github.iomurphy.robot.entity.card.*;
 import io.github.iomurphy.robot.entity.http.Response;
 import io.github.iomurphy.robot.entity.message.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 
-@SpringBootTest(classes = {DingTalkAutoConfigureTests.HttpConvertConfiguration.class})
+@SpringBootTest(classes = {DingTalkAutoConfigureTests.class})
 @EnableAutoConfiguration
 class DingTalkAutoConfigureTests {
 
-    @Configuration
-    static class HttpConvertConfiguration {
-        @Bean
-        public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
-            return new MappingJackson2HttpMessageConverter();
-        }
-    }
 
     @Autowired
     RobotTemplate robotTemplate;
@@ -101,8 +91,8 @@ class DingTalkAutoConfigureTests {
     @Test
     void sendFeedCardMessage() {
         FeedCard message = new FeedCard();
-        message.addLink(new Link("时代的火车向前开", "https://ww.bing.com", "https://ding-doc.oss-cn-beijing.aliyuncs.com/images/1217/1570679939723-c1fb7861-5bcb-4c30-9e1b-033932f6b72f.png"));
-        message.addLink(new Link("时代的火车向前开2", "https://www.baidu.com", "https://ding-doc.oss-cn-beijing.aliyuncs.com/images/1217/1570679939723-c1fb7861-5bcb-4c30-9e1b-033932f6b72f.png"));
+        message.addLink(new Link("时代的火车向前开", "https://meeting.dingtalk.com/app?spm=a213l2.13146415.4929779444.110.7f1521c9fqUNVl&acm=lb-zebra-522635-9150460.1003.4.8899223&scm=1003.4.lb-zebra-522635-9150460.OTHER_16100607822421_8899223", "https://img.alicdn.com/imgextra/i4/O1CN01hVN23L1EmUhpVvNBk_!!6000000000394-2-tps-146-146.png"));
+        message.addLink(new Link("时代的火车向前开2", "https://www.baidu.com", "https://img.alicdn.com/imgextra/i2/O1CN01vj0PSK1QKLkvuqeC2_!!6000000001957-2-tps-146-146.png"));
         Response response = robotTemplate.send(message);
         if (response.getErrCode() != 0) {
             throw new RuntimeException(response.toString());
