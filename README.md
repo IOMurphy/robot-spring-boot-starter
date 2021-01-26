@@ -79,14 +79,14 @@ RobotTemplate robotTemplate;
         message.setAtAll(false);
         Response response=robotTemplate.send(message);
         if(response.getErrCode()!=0){
-        throw new RuntimeException(response.toString());
+            throw new RuntimeException(response.toString());
         }
-        }
+    }
 ```
 
 效果图：
 
-![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4099076061/p131215.png)
+![TextMessage](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4099076061/p131215.png)
 
 #### 2.2.2 markdown消息
 
@@ -101,16 +101,16 @@ RobotTemplate robotTemplate;
         message.setAtAll(false);
         Response response=robotTemplate.send(message);
         if(response.getErrCode()!=0){
-        throw new RuntimeException(response.toString());
+            throw new RuntimeException(response.toString());
         }
-        }
+    }
 ```
 
 效果图：
 
-![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4099076061/p131216.png)
+![MarkdownDingTalkMessage](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/4099076061/p131216.png)
 
-#### 2.2.3 整体跳转actionCard
+#### 2.2.3 整体跳转 ActionCard
 
 构建消息并发送：
 
@@ -126,16 +126,16 @@ RobotTemplate robotTemplate;
         message.setSingleURL("https://www.dingtalk.com/");
         Response response=robotTemplate.send(message);
         if(response.getErrCode()!=0){
-        throw new RuntimeException(response.toString());
+            throw new RuntimeException(response.toString());
         }
-        }
+    }
 ```
 
 效果图：
 
-![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5099076061/p131217.png)
+![ActionCard](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5099076061/p131217.png)
 
-#### 2.2.4 独立跳转actionCard
+#### 2.2.4 独立跳转 ActionCard
 
 构建消息并发送：
 
@@ -151,16 +151,16 @@ RobotTemplate robotTemplate;
         message.addButton(new Button("不感兴趣","https://www.dingtalk.com/"));
         Response response=robotTemplate.send(message);
         if(response.getErrCode()!=0){
-        throw new RuntimeException(response.toString());
+            throw new RuntimeException(response.toString());
         }
-        }
+    }
 ```
 
 效果图：
 
-![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5099076061/p131218.png)
+![ActionCard](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5099076061/p131218.png)
 
-#### 2.2.5 feedCard
+#### 2.2.5 FeedCard
 
 构建消息并发送：
 
@@ -171,14 +171,14 @@ RobotTemplate robotTemplate;
         message.addLink(new Link("时代的火车向前开2","https://www.baidu.com","https://img.alicdn.com/imgextra/i2/O1CN01vj0PSK1QKLkvuqeC2_!!6000000001957-2-tps-146-146.png"));
         Response response=robotTemplate.send(message);
         if(response.getErrCode()!=0){
-        throw new RuntimeException(response.toString());
+            throw new RuntimeException(response.toString());
         }
-        }
+    }
 ```
 
 效果图：
 
-![](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5099076061/p131219.png)
+![FeedCard](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/5099076061/p131219.png)
 
 #### 2.2.6 链接消息
 
@@ -187,16 +187,16 @@ RobotTemplate robotTemplate;
 ```java
     @Deprecated
     void sendLinkMessage(){
-            LinkMessage message=new LinkMessage();
-            message.setText("这个即将发布的新版本，创始人xx称它为红树林。而在此之前，每当面临重大升级，产品经理们都会取一个应景的代号，这一次，为什么是红树林");
-            message.setTitle("时代的火车向前开");
-            message.setPicUrl("");
-            message.setMessageUrl("bing.com");
-            Response response=robotTemplate.send(message);
-            if(response.getErrCode()!=0){
+        LinkMessage message=new LinkMessage();
+        message.setText("这个即将发布的新版本，创始人xx称它为红树林。而在此之前，每当面临重大升级，产品经理们都会取一个应景的代号，这一次，为什么是红树林");
+        message.setTitle("时代的火车向前开");
+        message.setPicUrl("");
+        message.setMessageUrl("bing.com");
+        Response response=robotTemplate.send(message);
+        if(response.getErrCode()!=0){
             throw new RuntimeException(response.toString());
-            }
-            }
+        }
+    }
 ```
 
 根据钉钉最新文档，链接类型的消息已经不支持了。
